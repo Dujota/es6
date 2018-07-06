@@ -78,16 +78,12 @@
       let second = 'open'
 
       if (e.target.classList.contains(first)) {
-        e.target.classList.toggle(second)
-        setTimeout(() => {
-          e.target.classList.toggle(first);
-        }, 500)
-      } else {
-        e.target.classList.toggle(first)
-        setTimeout(() => {
-          e.target.classList.toggle(second);
-        }, 500)
+        [first, second] = [second, first]
       }
+      e.target.classList.toggle(first)
+      setTimeout(() => {
+        e.target.classList.toggle(second);
+      }, 500)
     })
   </script>
 </body>
