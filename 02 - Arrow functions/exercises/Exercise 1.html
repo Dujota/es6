@@ -43,10 +43,10 @@
       // map down to a list of time strings
       .map(li => li.attributes['data-time'].value)
 
-
-    // map to an array of seconds
-
-    // reduce to get total
+      // map to an array of seconds
+      .map(time => time.split(":").reduce((accumilator, time) => (60 * accumilator) + +time))
+      // reduce to get total
+      .reduce((acc, secs) => acc += secs)
 
     // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
 
