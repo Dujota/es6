@@ -24,9 +24,41 @@
       JS: 'JavaScript'
     };
 
+    // console log the evalutation and it will have two arrays one fore the strings nad one for the values
+
+    // we use a spread ...values to add any and all arguments into an array. string array is always 1 index greater than the values array
+    function addAbbreviations(strings, ...values) {
+
+      // map over the values
+      const abbreviated = values.map(value => {
+        //for each value now we will check if there is a value in the dictionary
+        if (dict[value]) {
+          // if it has an item for that specific value then we wil return the abbreviation tag and the titlew will be the dict item with that key
+          return `<abbr title="${dict[value]}">${value}</abbr>  `  // inside the abbreviation tag we will return the actual value
+        }
+        return value // we will get undefined if it is not in the dictionary we want to skip over that
+      });
+      // we can take the string array and start to piece it together with a reduce function
+      // reduce will loop over each one and build the string as we go
+
+      // reduce takes a function and what do we start with
+      return strings.reduce((sentence, string, index) => {
+        return `${sentence}${string}${abbreviated[index] || ''}`
+      }, '')
+
+    }
+
     const first = 'Wes';
     const last = 'Bos';
-    const sentence = `Hello my name is ${first} ${last} and i love to code ${'HTML'}, ${'CSS'} and ${'JS'}`
+    // using placeholders in the interpolation that we  can reference when tagged
+    const sentence = addAbbreviations`Hello my name is ${first} ${last} and i love to code ${'HTML'}, ${'CSS'} and ${'JS'}`
+    const bio = document.querySelector('.bio');
+    const p = document.createElement('p');
+
+    p.innerHTML = sentence;
+    bio.appendChild(p)
+
+
 
   </script>
 </body>
