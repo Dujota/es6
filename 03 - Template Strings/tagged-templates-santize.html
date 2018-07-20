@@ -23,7 +23,7 @@
     function sanitize(strings, ...values) {
 
 
-      // we sanitize the html before we insert it into the DOM
+      // we sanitize the html before we insert it into the DOM. We setup the string from the gagging and then pass it to the DOMPurify.sanitize function
       const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
       return DOMPurify.sanitize(dirty);
     }
