@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>New String Methods</title>
 </head>
+
 <body>
 
-<script>
-const course = 'RFB2';
-const flightNumber = '20-AC2018-jz';
-const accountNumber = '825242631RT0001';
+  <script>
+    const course = 'RFB2';
+    const flightNumber = '20-AC2018-jz';
+    const accountNumber = '825242631RT0001';
 
-const make = 'BMW';
-const model = 'x5';
-const colour = 'Royal Blue';
+    const make = 'BMW';
+    const model = 'x5';
+    const colour = 'Royal Blue';
 
-// .startsWith()
+    // .startsWith()
+    flightNumber.startsWith('AC') // false
+    // allows you to skip over a set of indexies and we cant start at any point
+    flightNumber.startsWith('AC', 3) // start at index 3, returns true
 
-// .endsWith()
+    // .endsWith()
+    flightNumber.endsWith('jz') // true
+    // we can pass in another option to endsWith method, which you can tell the endswith to take a max # of characters and ignore the rest
+    accountNumber.endsWith('RT') // false
+    accountNumber.endsWith('RT', 11) //only check the 1st 11 chars
+    // .includes() -- works the same as array includes
 
-// .includes()
+    // .repeat() -- allows you to take a string and repeat it X # of times
+    function leftPad(str, length = 20) {
+      return `→ ${' '.repeat(length - str.length)}${str}`; // it will take the space and repeat it 20 - length of the string times
+    }
 
-// .repeat()
-
-function leftPad(str, length = 20) {
-  return `→ ${' '.repeat(length - str.length)}${str}`;
-}
-
-console.log(leftPad(make));
-console.log(leftPad(model));
-console.log(leftPad(colour));
+    console.log(leftPad(make));
+    console.log(leftPad(model));
+    console.log(leftPad(colour));
 
 
-</script>
+  </script>
 
 </body>
+
 </html>
