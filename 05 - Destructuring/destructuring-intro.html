@@ -38,9 +38,16 @@
     // If you have a naming conflict or if you wan to rename the variables from destructuring you do {proeprty: newname}
     const { twitter: tweet, facebook: fb } = wes.links.social;
 
+
+    // PRETEND This is a function that does some animation on our page
+
+    // setting defaults for the proeprtries inside the object with the es6 default argument concept
     const settings = { width: 300, color: 'black' }  // height, fontSize
+
+    // when we dp the destructuring, we can set a default/fallback value
     const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
 
+    // essentially we are destructuring the settings object, if there is a property specified in the destrucuting the new value will be assigned, otherwise the defualt value will be used
   </script>
 </body>
 
