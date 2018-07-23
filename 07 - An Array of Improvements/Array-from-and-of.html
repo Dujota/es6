@@ -13,6 +13,11 @@
 
 <body>
   <script>
+
+    //  THESE ARE NOT PROTOTYPE METHODS -- THEY ARE ON THE ARRAY ITSELF
+
+    // array.from will take somehting that is arrayish and turn it into a true array, like nodeList
+
     const people = document.querySelectorAll('.people p');
     const peopleArray = Array.from(people, person => {
       console.log(person);
@@ -21,6 +26,8 @@
     console.log(peopleArray);
 
     const names = people.map(person => person.textContent);
+
+
 
     function sumAll() {
       const nums = Array.from(arguments);
