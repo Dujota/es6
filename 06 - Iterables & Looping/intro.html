@@ -45,7 +45,11 @@
 
     // DRAWBACK - IF SOMETHING IS ADDED TO THE PROTOTYPE OF THE ARRAY THE FOR IN LOOP WILL ITERATE THROUGH THE ITEMS IN THE ARRAY AND ALSO ANYTHING THAT WAS ADDED TO ARRAY INCLUDING THE PROTOTYPE
 
+    // this also includes properties that get added to the array
 
+
+
+    // ONLY WORKS FOR ARRAYS!!!!!!!!!
     for (const cut of cuts) {
       if (cut === 'Brisket') {
         continue;
