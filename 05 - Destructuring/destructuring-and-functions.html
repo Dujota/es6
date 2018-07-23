@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Destructuring in Action!</title>
 </head>
-<body>
-<script>
-  function convertCurrency(amount) {
-    const converted = {
-      USD: amount * 0.76,
-      GPB: amount * 0.53,
-      AUD: amount * 1.01,
-      MEX: amount * 13.30
-    };
-    return converted;
-  }
 
+<body>
+  <script>
+    function convertCurrency(amount) {
+      const converted = {
+        USD: amount * 0.76,
+        GPB: amount * 0.53,
+        AUD: amount * 1.01,
+        MEX: amount * 13.30
+      };
+      return converted;
+    }
+
+    // using object literals we would need to : onst hundo = convertCurrency(100) then console.log(hundo.USD)
+    // we are destructuring data from a
+
+    const { USD, GPB, AUD, MEX } = convertCurrency(100) // the es6 way, they dont have to be in the same order as the object
+
+    console.log(USD, GPB, AUD, MEX)
+
+    // MAKE THE INPUTS ORDER INDEPENDANT -- wrapping hte vars in curly brackets creates a destructuring call so that when we pass in an object, is is going to destructure them into three variables  total, tip, tax available inside the function. when we call it we run ipCalc({ tip: 0.20, total: 200 }); and the default tax will kick in and doesnt matter what the order was
+    function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {  // we can also set it up so that if we ever pass in nothing you will get a typeError from destructuring from null/undefined, we fix hat by defaulting to empty object
+      return total + (tip * total) + (tax * total);
+    }
+
+    /*
   function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
     return total + (tip * total) + (tax * total);
   }
 
   const bill = tipCalc({ tip: 0.20, total: 200 });
   console.log(bill);
-
-</script>
+*/
+  </script>
 </body>
+
 </html>
