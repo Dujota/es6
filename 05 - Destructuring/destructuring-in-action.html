@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Destructuring in Action!</title>
 </head>
+
 <body>
-<script>
-  let inRing = 'Hulk Hogan';
-  let onSide = 'The Rock';
+  <script>
+    let inRing = 'Hulk Hogan';
+    let onSide = 'The Rock';
 
-  console.log(inRing, onSide);
-  [inRing, onSide] = [onSide, inRing];
-  console.log(inRing, onSide);
+    console.log(inRing, onSide);
 
-</script>
+    // this actually switches or toggles the value of the variables with each other, which is part of the destructuring functionality
+    [inRing, onSide] = [onSide, inRing];
+    // destructuring literally swaps the values of the variables by creating an array of the values and then destructuring them so that the values are flipped.
+
+    /* same as doing :
+    let tmp = inRing
+    onbside = inRing
+    inRing = tmp
+    */
+
+    console.log(inRing, onSide);
+
+
+
+  </script>
 </body>
+
 </html>
